@@ -17,7 +17,7 @@ namespace GeoAgenda.Models
         public string FechaFabricacion { get; set; }
         public string Kilometraje { get; set; }
         public string Conductor { get; set; }
-        public double latitudBase { get; set; }
-        public double longitudBase { get; set; }
+        public float latitudBase { get; set; }
+        public float longitudBase { get; set; }
     }
 }

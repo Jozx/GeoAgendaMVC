@@ -20,8 +20,10 @@ namespace GeoAgenda.Models
         public string Telefono { get; set; }
         public int RUC  { get; set; }
         public int DV { get; set; }
-        public double latitud { get; set; }
-        public double longitud { get; set; }
+
+        public Decimal latitud { get; set; }
+
+        public Decimal longitud { get; set; }
         public Boolean Estado { get; set; }
     }
 }
