@@ -7,9 +7,9 @@ using System.Web;
 
 namespace GeoAgenda.Context
 {
-    public class GeoAgendalContext : DbContext
+    public class GeoAgendaContext : DbContext
     {
-        public GeoAgendalContext()
+        public GeoAgendaContext()
             : base("DefaultConnection")
         {
         }
