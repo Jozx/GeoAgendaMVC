@@ -37,5 +37,103 @@ namespace GeoAgenda.Controllers
 
             return View(cliente);
         }
+
+        public ActionResult Details(int? Id)
+        {
+            //if (Id == null)
+            //{
+            //    return HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            //}
+
+            var cliente = db.Clientes.Find(Id);
+
+            if (cliente == null)
+            {
+                return HttpNotFound();
+            }
+
+            return View(cliente);
+        }
+
+        public ActionResult Edit(int? Id)
+        {
+            //if (Id == null)
+            //{
+            //    return HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            //}
+
+            var cliente = db.Clientes.Find(Id);
+
+            if (cliente == null)
+            {
+                return HttpNotFound();
+            }
+
+            return View(cliente);
+        }
+
+        [HttpPost]
+        public ActionResult Edit(Cliente cliente)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(cliente).State = System.Data.Entity.EntityState.Modified;
+                db.SaveChanges();
+
+                return RedirectToAction("Index");
+            }
+
+            return View(cliente);
+        }
+
+        public ActionResult Delete(int? Id)
+        {
+            //if (Id == null)
+            //{
+            //    return HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            //}
+
+            var cliente = db.Clientes.Find(Id);
+
+            if (cliente == null)
+            {
+                return HttpNotFound();
+            }
+
+            return View(cliente);
+        }
+
+        [HttpPost]
+        public ActionResult Delete(int Id, Cliente cliente)
+        {
+
+            cliente = db.Clientes.Find(Id);
+
+            if (ModelState.IsValid)
+            {
+                db.Clientes.Remove(cliente);
+                db.SaveChanges();
+
+                return RedirectToAction("Index");
+            }
+
+            return View(cliente);
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                if (db.Clientes != null)
+                {
+                    db.Dispose();
+                    db.Clientes = null;
+                }
+
+
+            }
+
+            base.Dispose(disposing);
+        }
     }
 }
