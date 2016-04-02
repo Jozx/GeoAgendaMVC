@@ -21,9 +21,12 @@ namespace GeoAgenda.Models
         public int RUC  { get; set; }
         public int DV { get; set; }
 
-        public Decimal latitud { get; set; }
+        
+        public string latitud { get; set; }
 
-        public Decimal longitud { get; set; }
+        
+        public string longitud { get; set; }
+
         public Boolean Estado { get; set; }
     }
 }
