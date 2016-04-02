@@ -28,5 +28,7 @@ namespace GeoAgenda.Models
         public string longitud { get; set; }
 
         public Boolean Estado { get; set; }
+
+        public virtual ICollection<Planificacion> planificacion { get; set; }
     }
 }

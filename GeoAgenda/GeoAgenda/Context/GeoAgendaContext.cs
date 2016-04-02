@@ -16,6 +16,6 @@ namespace GeoAgenda.Context
 
         public DbSet <Cliente> Clientes { get; set; }
         public DbSet <Vehiculo> Vehiculos { get; set; }
-
+        public DbSet <Planificacion> Planificaciones { get; set; }
     }
 }

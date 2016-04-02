@@ -21,5 +21,7 @@ namespace GeoAgenda.Models
         public string latitudBase { get; set; }
 
         public string longitudBase { get; set; }
+
+        public virtual ICollection<Planificacion> planificacion { get; set; }
     }
 }
