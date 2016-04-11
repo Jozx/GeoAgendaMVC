@@ -64,7 +64,7 @@ namespace GeoAgenda.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "IdPlanificacion,fechaEnvio,horaEnvio")] Planificacion planificacion)
+        public ActionResult Create(Planificacion planificacion)
         {
             if (ModelState.IsValid)
             {
