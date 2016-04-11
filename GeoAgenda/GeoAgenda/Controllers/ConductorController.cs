@@ -11,112 +11,107 @@ using GeoAgenda.Models;
 
 namespace GeoAgenda.Controllers
 {
-    public class VehiculoController : Controller
+    public class ConductorController : Controller
     {
         private GeoAgendaContext db = new GeoAgendaContext();
 
-        // GET: Vehiculo
+        // GET: Conductor
         public ActionResult Index()
         {
-            var vehiculos = db.Vehiculos.Include(v => v.conductor);
-            return View(vehiculos.ToList());
+            return View(db.Conductors.ToList());
         }
 
-        // GET: Vehiculo/Details/5
+        // GET: Conductor/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Vehiculo vehiculo = db.Vehiculos.Find(id);
-            if (vehiculo == null)
+            Conductor conductor = db.Conductors.Find(id);
+            if (conductor == null)
             {
                 return HttpNotFound();
             }
-            return View(vehiculo);
+            return View(conductor);
         }
 
-        // GET: Vehiculo/Create
+        // GET: Conductor/Create
         public ActionResult Create()
         {
-            ViewBag.IdConductor = new SelectList(db.Conductors, "IdConductor", "Nombre");
             return View();
         }
 
-        // POST: Vehiculo/Create
+        // POST: Conductor/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "IdVehiculo,Marca,Modelo,FechaFabricacion,Kilometraje,latitudBase,longitudBase,IdConductor")] Vehiculo vehiculo)
+        public ActionResult Create(Conductor conductor)
         {
             if (ModelState.IsValid)
             {
-                db.Vehiculos.Add(vehiculo);
+                db.Conductors.Add(conductor);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.IdConductor = new SelectList(db.Conductors, "IdConductor", "Nombre", vehiculo.IdConductor);
-            return View(vehiculo);
+            return View(conductor);
         }
 
-        // GET: Vehiculo/Edit/5
+        // GET: Conductor/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Vehiculo vehiculo = db.Vehiculos.Find(id);
-            if (vehiculo == null)
+            Conductor conductor = db.Conductors.Find(id);
+            if (conductor == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.IdConductor = new SelectList(db.Conductors, "IdConductor", "Nombre", vehiculo.IdConductor);
-            return View(vehiculo);
+            return View(conductor);
         }
 
-        // POST: Vehiculo/Edit/5
+        // POST: Conductor/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "IdVehiculo,Marca,Modelo,FechaFabricacion,Kilometraje,latitudBase,longitudBase,IdConductor")] Vehiculo vehiculo)
+        public ActionResult Edit( Conductor conductor)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(vehiculo).State = EntityState.Modified;
+                db.Entry(conductor).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.IdConductor = new SelectList(db.Conductors, "IdConductor", "Nombre", vehiculo.IdConductor);
-            return View(vehiculo);
+            return View(conductor);
         }
 
-        // GET: Vehiculo/Delete/5
+        // GET: Conductor/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Vehiculo vehiculo = db.Vehiculos.Find(id);
-            if (vehiculo == null)
+            Conductor conductor = db.Conductors.Find(id);
+            if (conductor == null)
             {
                 return HttpNotFound();
             }
-            return View(vehiculo);
+            return View(conductor);
         }
 
-        // POST: Vehiculo/Delete/5
+        // POST: Conductor/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Vehiculo vehiculo = db.Vehiculos.Find(id);
-            db.Vehiculos.Remove(vehiculo);
+            Conductor conductor = db.Conductors.Find(id);
+            db.Conductors.Remove(conductor);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

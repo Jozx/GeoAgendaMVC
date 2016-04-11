@@ -1,0 +1,74 @@
+﻿@model GeoAgenda.Models.Vehiculo
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Vehiculo</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.conductor.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.conductor.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Marca)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Marca)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Modelo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Modelo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaFabricacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaFabricacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Kilometraje)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Kilometraje)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.latitudBase)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.latitudBase)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.longitudBase)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.longitudBase)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IdVehiculo }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

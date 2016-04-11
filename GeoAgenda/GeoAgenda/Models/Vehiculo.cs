@@ -16,11 +16,14 @@ namespace GeoAgenda.Models
         public string Modelo { get; set; }
         public string FechaFabricacion { get; set; }
         public string Kilometraje { get; set; }
-        public string Conductor { get; set; }
 
         public string latitudBase { get; set; }
 
         public string longitudBase { get; set; }
+
+        //Foraneas
+        public int IdConductor { get; set; }
+        public virtual Conductor conductor { get; set; }
 
         public virtual ICollection<Planificacion> planificacion { get; set; }
     }

@@ -170,6 +170,7 @@
     <Compile Include="Context\GeoAgendaContext.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ClienteController.cs" />
+    <Compile Include="Controllers\ConductorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PlanificacionController.cs" />
@@ -179,6 +180,7 @@
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Cliente.cs" />
+    <Compile Include="Models\Conductor.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Planificacion.cs" />
@@ -255,6 +257,19 @@
     <Content Include="Views\Planificacion\Details.cshtml" />
     <Content Include="Views\Planificacion\Edit.cshtml" />
     <Content Include="Views\Planificacion\Index.cshtml" />
+    <Content Include="Views\Conductors\Create.cshtml" />
+    <Content Include="Views\Conductors\Delete.cshtml" />
+    <Content Include="Views\Conductors\Details.cshtml" />
+    <Content Include="Views\Conductors\Edit.cshtml" />
+    <Content Include="Views\Conductors\Index.cshtml" />
+    <Content Include="Views\Conductor\Create.cshtml" />
+    <Content Include="Views\Conductor\Delete.cshtml" />
+    <Content Include="Views\Conductor\Details.cshtml" />
+    <Content Include="Views\Conductor\Edit.cshtml" />
+    <Content Include="Views\Conductor\Index.cshtml" />
+    <Content Include="Views\Vehiculo\Delete.cshtml" />
+    <Content Include="Views\Vehiculo\Details.cshtml" />
+    <Content Include="Views\Vehiculo\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

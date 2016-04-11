@@ -18,10 +18,8 @@ namespace GeoAgenda.Controllers
         // GET: Planificacion
         public ActionResult Index()
         {
-
-            var planificacion = db.Planificaciones.Include(v => v.vehiculo).Include(c => c.cliente);
-
-            return View(planificacion.ToList());
+            var planificaciones = db.Planificaciones.Include(p => p.cliente).Include(p => p.vehiculo);
+            return View(planificaciones.ToList());
         }
 
         // GET: Planificacion/Details/5
@@ -42,20 +40,8 @@ namespace GeoAgenda.Controllers
         // GET: Planificacion/Create
         public ActionResult Create()
         {
-            var vehiculo = db.Vehiculos.ToList();
-            vehiculo.Add(new Vehiculo { IdVehiculo = 0, Conductor = "Seleccione Conductor" });
-
-            vehiculo = vehiculo.OrderBy(v => v.IdVehiculo).ToList();
-
-            ViewBag.IdVehiculo = new SelectList(vehiculo, "IdVehiculo", "Conductor");
-
-            var cliente = db.Clientes.ToList();
-            cliente.Add(new Cliente { IdCliente = 0, RazonSocial = "Seleccione Cliente" });
-
-            cliente = cliente.OrderBy(c => c.IdCliente).ToList();
-
-            ViewBag.IdCliente = new SelectList(cliente, "IdCliente", "RazonSocial");
-
+            ViewBag.IdCliente = new SelectList(db.Clientes, "IdCliente", "RazonSocial");
+            ViewBag.IdVehiculo = new SelectList(db.Vehiculos, "IdVehiculo", "Marca");
             return View();
         }
 
@@ -64,7 +50,7 @@ namespace GeoAgenda.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Planificacion planificacion)
+        public ActionResult Create([Bind(Include = "IdPlanificacion,fechaEnvio,horaEnvio,IdVehiculo,IdCliente")] Planificacion planificacion)
         {
             if (ModelState.IsValid)
             {
@@ -73,6 +59,8 @@ namespace GeoAgenda.Controllers
                 return RedirectToAction("Index");
             }
 
+            ViewBag.IdCliente = new SelectList(db.Clientes, "IdCliente", "RazonSocial", planificacion.IdCliente);
+            ViewBag.IdVehiculo = new SelectList(db.Vehiculos, "IdVehiculo", "Marca", planificacion.IdVehiculo);
             return View(planificacion);
         }
 
@@ -88,6 +76,8 @@ namespace GeoAgenda.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.IdCliente = new SelectList(db.Clientes, "IdCliente", "RazonSocial", planificacion.IdCliente);
+            ViewBag.IdVehiculo = new SelectList(db.Vehiculos, "IdVehiculo", "Marca", planificacion.IdVehiculo);
             return View(planificacion);
         }
 
@@ -96,7 +86,7 @@ namespace GeoAgenda.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "IdPlanificacion,fechaEnvio,horaEnvio")] Planificacion planificacion)
+        public ActionResult Edit([Bind(Include = "IdPlanificacion,fechaEnvio,horaEnvio,IdVehiculo,IdCliente")] Planificacion planificacion)
         {
             if (ModelState.IsValid)
             {
@@ -104,6 +94,8 @@ namespace GeoAgenda.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.IdCliente = new SelectList(db.Clientes, "IdCliente", "RazonSocial", planificacion.IdCliente);
+            ViewBag.IdVehiculo = new SelectList(db.Vehiculos, "IdVehiculo", "Marca", planificacion.IdVehiculo);
             return View(planificacion);
         }
 
