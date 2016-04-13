@@ -13,7 +13,12 @@ namespace GeoAgenda.Models
        [Key]
         public int IdConductor { get; set; }
         public string Nombre { get; set; }
+        public string NroRegistro { get; set; }
+        public int Record { get; set; }
        
         public virtual ICollection<Vehiculo> vehiculo { get; set; }
+
+        public int IdEntrega { get; set; }
+        public virtual Entrega entrega { get; set; }
     }
 }

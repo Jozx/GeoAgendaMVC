@@ -14,18 +14,12 @@ namespace GeoAgenda.Models
         [Key]
         public int IdCliente { get; set; }
         public string RazonSocial { get; set; }
-        public string Direccion { get; set; }
+        
         public string NombreContacto { get; set; }
         public string Email { get; set; }
         public string Telefono { get; set; }
         public int RUC  { get; set; }
         public int DV { get; set; }
-
-        
-        public string latitud { get; set; }
-
-        
-        public string longitud { get; set; }
 
         public Boolean Estado { get; set; }
 
