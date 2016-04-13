@@ -15,6 +15,7 @@ namespace GeoAgenda.Models
         public string Nombre { get; set; }
         public string NroRegistro { get; set; }
         public int Record { get; set; }
+        public int CantidadEntregas { get; set; }
        
         public virtual ICollection<Vehiculo> vehiculo { get; set; }
 
