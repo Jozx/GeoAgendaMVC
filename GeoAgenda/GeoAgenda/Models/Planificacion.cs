@@ -25,5 +25,8 @@ namespace GeoAgenda.Models
 
         public int IdCliente { get; set; }
         public virtual Cliente cliente { get; set; }
+
+        public int IdConductor { get; set; }
+        public virtual Conductor conductos { get; set; }
     }
 }

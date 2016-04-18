@@ -12,18 +12,12 @@ namespace GeoAgenda.Models
     {
         [Key]
         public int IdVehiculo { get; set; }
-        public string Marca { get; set; }
-        public string Modelo { get; set; }
-        public string FechaFabricacion { get; set; }
         public string Kilometraje { get; set; }
-
         public string latitudBase { get; set; }
-
         public string longitudBase { get; set; }
 
-        //Foraneas
-        public int IdConductor { get; set; }
-        public virtual Conductor conductor { get; set; }
+        public int IdMarca { get; set; }
+        public virtual MarcaVehiculo marca { get; set; }
 
         public virtual ICollection<Planificacion> planificacion { get; set; }
     }

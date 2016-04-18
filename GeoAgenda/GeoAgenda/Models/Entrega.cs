@@ -19,6 +19,11 @@ namespace GeoAgenda.Models
         public string latitudEntrega { get; set; }
         public string longitudEntrega { get; set; }
 
-        public virtual ICollection<Conductor> conductor { get; set; }
+        public int IdConductor { get; set; }
+        public virtual Conductor conductor { get; set; }
+
+        public int IdCliente { get; set; }
+        public virtual Cliente cliente { get; set; }
+
     }
 }

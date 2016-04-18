@@ -18,6 +18,22 @@
             @Html.DisplayFor(model => model.Nombre)
         </dd>
 
+        <dt>
+            @Html.DisplayNameFor(model => model.NroRegistro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NroRegistro)
+        </dd>
+
+        <dd>
+            @if (!string.IsNullOrEmpty(Model.Foto))
+            {
+                <img src="@Url.Content(Model.Foto)" alt="Image" style="width:200px;height:200px; max-width:100%;height:auto" />
+            }
+
+        </dd>
+
     </dl>
 </div>
 <p>

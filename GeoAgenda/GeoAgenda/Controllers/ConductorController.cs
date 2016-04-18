@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using GeoAgenda.Context;
 using GeoAgenda.Models;
+using System.IO;
 
 namespace GeoAgenda.Controllers
 {
@@ -18,7 +19,7 @@ namespace GeoAgenda.Controllers
         // GET: Conductor
         public ActionResult Index()
         {
-            return View(db.Conductors.ToList());
+            return View(db.Conductores.ToList());
         }
 
         // GET: Conductor/Details/5
@@ -28,7 +29,7 @@ namespace GeoAgenda.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Conductor conductor = db.Conductors.Find(id);
+            Conductor conductor = db.Conductores.Find(id);
             if (conductor == null)
             {
                 return HttpNotFound();
@@ -42,21 +43,54 @@ namespace GeoAgenda.Controllers
             return View();
         }
 
-        // POST: Conductor/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Conductor conductor)
+        public ActionResult Create(ConductorView conductorview)
         {
             if (ModelState.IsValid)
             {
-                db.Conductors.Add(conductor);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                string path = string.Empty;
+                string imag = string.Empty;
+
+                if (conductorview.Foto != null)
+                {
+                    imag = Path.GetFileName(conductorview.Foto.FileName);
+                    path = Path.Combine(Server.MapPath("~/Content/Fotos"), imag);
+                    conductorview.Foto.SaveAs(path);
+
+                    using (MemoryStream ms = new MemoryStream())
+                    {
+                        conductorview.Foto.InputStream.CopyTo(ms);
+                        byte[] array = ms.GetBuffer();
+                    }
+
+                }
+
+                var conductor = new Conductor
+                {
+                    Nombre = conductorview.Nombre,
+                    NroRegistro = conductorview.NroRegistro,
+                    entrega = conductorview.entrega,
+                    planificacion = conductorview.planificacion,
+                    Foto = imag == string.Empty ? string.Empty : string.Format("~/Content/Fotos/{0}", imag),
+
+                };
+
+                try
+                {
+                    db.Conductores.Add(conductor);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                catch (Exception)
+                {
+
+
+                }
             }
 
-            return View(conductor);
+            return View(conductorview);
         }
 
         // GET: Conductor/Edit/5
@@ -66,7 +100,7 @@ namespace GeoAgenda.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Conductor conductor = db.Conductors.Find(id);
+            Conductor conductor = db.Conductores.Find(id);
             if (conductor == null)
             {
                 return HttpNotFound();
@@ -79,7 +113,7 @@ namespace GeoAgenda.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit( Conductor conductor)
+        public ActionResult Edit(Conductor conductor)
         {
             if (ModelState.IsValid)
             {
@@ -97,7 +131,7 @@ namespace GeoAgenda.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Conductor conductor = db.Conductors.Find(id);
+            Conductor conductor = db.Conductores.Find(id);
             if (conductor == null)
             {
                 return HttpNotFound();
@@ -110,8 +144,8 @@ namespace GeoAgenda.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Conductor conductor = db.Conductors.Find(id);
-            db.Conductors.Remove(conductor);
+            Conductor conductor = db.Conductores.Find(id);
+            db.Conductores.Remove(conductor);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

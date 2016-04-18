@@ -11,112 +11,107 @@ using GeoAgenda.Models;
 
 namespace GeoAgenda.Controllers
 {
-    public class ClienteController : Controller
+    public class SucursalController : Controller
     {
         private GeoAgendaContext db = new GeoAgendaContext();
 
-        // GET: Cliente
+        // GET: Sucursal
         public ActionResult Index()
         {
-            var clientes = db.Clientes.Include(c => c.sucursal);
-            return View(clientes.ToList());
+            return View(db.Sucursales.ToList());
         }
 
-        // GET: Cliente/Details/5
+        // GET: Sucursal/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Cliente cliente = db.Clientes.Find(id);
-            if (cliente == null)
+            Sucursal sucursal = db.Sucursales.Find(id);
+            if (sucursal == null)
             {
                 return HttpNotFound();
             }
-            return View(cliente);
+            return View(sucursal);
         }
 
-        // GET: Cliente/Create
+        // GET: Sucursal/Create
         public ActionResult Create()
         {
-            ViewBag.IdSucursal = new SelectList(db.Sucursales, "IdSucursal", "Direccion");
             return View();
         }
 
-        // POST: Cliente/Create
+        // POST: Sucursal/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Cliente cliente)
+        public ActionResult Create([Bind(Include = "IdSucursal,Direccion,contactoSucursal,telefonoSucursal,latitudSucursal,longitudSucursal")] Sucursal sucursal)
         {
             if (ModelState.IsValid)
             {
-                db.Clientes.Add(cliente);
+                db.Sucursales.Add(sucursal);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.IdSucursal = new SelectList(db.Sucursales, "IdSucursal", "Direccion", cliente.IdSucursal);
-            return View(cliente);
+            return View(sucursal);
         }
 
-        // GET: Cliente/Edit/5
+        // GET: Sucursal/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Cliente cliente = db.Clientes.Find(id);
-            if (cliente == null)
+            Sucursal sucursal = db.Sucursales.Find(id);
+            if (sucursal == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.IdSucursal = new SelectList(db.Sucursales, "IdSucursal", "Direccion", cliente.IdSucursal);
-            return View(cliente);
+            return View(sucursal);
         }
 
-        // POST: Cliente/Edit/5
+        // POST: Sucursal/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(Cliente cliente)
+        public ActionResult Edit([Bind(Include = "IdSucursal,Direccion,contactoSucursal,telefonoSucursal,latitudSucursal,longitudSucursal")] Sucursal sucursal)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(cliente).State = EntityState.Modified;
+                db.Entry(sucursal).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.IdSucursal = new SelectList(db.Sucursales, "IdSucursal", "Direccion", cliente.IdSucursal);
-            return View(cliente);
+            return View(sucursal);
         }
 
-        // GET: Cliente/Delete/5
+        // GET: Sucursal/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Cliente cliente = db.Clientes.Find(id);
-            if (cliente == null)
+            Sucursal sucursal = db.Sucursales.Find(id);
+            if (sucursal == null)
             {
                 return HttpNotFound();
             }
-            return View(cliente);
+            return View(sucursal);
         }
 
-        // POST: Cliente/Delete/5
+        // POST: Sucursal/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Cliente cliente = db.Clientes.Find(id);
-            db.Clientes.Remove(cliente);
+            Sucursal sucursal = db.Sucursales.Find(id);
+            db.Sucursales.Remove(sucursal);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

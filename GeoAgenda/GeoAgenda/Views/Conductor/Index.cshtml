@@ -14,6 +14,13 @@
         <th>
             @Html.DisplayNameFor(model => model.Nombre)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NroRegistro)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.Foto)
+        </th>
         <th></th>
     </tr>
 
@@ -21,6 +28,9 @@
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NroRegistro)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.IdConductor }) |

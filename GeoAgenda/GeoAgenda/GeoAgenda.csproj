@@ -173,17 +173,22 @@
     <Compile Include="Controllers\ConductorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Controllers\PlanificacionController.cs" />
-    <Compile Include="Controllers\VehiculoController.cs" />
+    <Compile Include="Controllers\MarcaVehiculoController.cs" />
+    <Compile Include="Controllers\ModeloVehiculoController.cs" />
+    <Compile Include="Controllers\RolController.cs" />
+    <Compile Include="Controllers\SucursalController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Cliente.cs" />
     <Compile Include="Models\Conductor.cs" />
+    <Compile Include="Models\ConductorView.cs" />
     <Compile Include="Models\Entrega.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\MarcaVehiculo.cs" />
+    <Compile Include="Models\ModeloVehiculo.cs" />
     <Compile Include="Models\Planificacion.cs" />
     <Compile Include="Models\Sucursal.cs" />
     <Compile Include="Models\Vehiculo.cs" />
@@ -259,22 +264,34 @@
     <Content Include="Views\Planificacion\Details.cshtml" />
     <Content Include="Views\Planificacion\Edit.cshtml" />
     <Content Include="Views\Planificacion\Index.cshtml" />
-    <Content Include="Views\Conductors\Create.cshtml" />
-    <Content Include="Views\Conductors\Delete.cshtml" />
-    <Content Include="Views\Conductors\Details.cshtml" />
-    <Content Include="Views\Conductors\Edit.cshtml" />
-    <Content Include="Views\Conductors\Index.cshtml" />
+    <Content Include="Views\Vehiculo\Delete.cshtml" />
+    <Content Include="Views\Vehiculo\Details.cshtml" />
+    <Content Include="Views\Vehiculo\Edit.cshtml" />
+    <Content Include="Views\Sucursal\Create.cshtml" />
+    <Content Include="Views\Sucursal\Delete.cshtml" />
+    <Content Include="Views\Sucursal\Details.cshtml" />
+    <Content Include="Views\Sucursal\Edit.cshtml" />
+    <Content Include="Views\Sucursal\Index.cshtml" />
+    <Content Include="Views\ModeloVehiculo\Create.cshtml" />
+    <Content Include="Views\ModeloVehiculo\Delete.cshtml" />
+    <Content Include="Views\ModeloVehiculo\Details.cshtml" />
+    <Content Include="Views\ModeloVehiculo\Edit.cshtml" />
+    <Content Include="Views\ModeloVehiculo\Index.cshtml" />
+    <Content Include="Views\MarcaVehiculo\Create.cshtml" />
+    <Content Include="Views\MarcaVehiculo\Delete.cshtml" />
+    <Content Include="Views\MarcaVehiculo\Details.cshtml" />
+    <Content Include="Views\MarcaVehiculo\Edit.cshtml" />
+    <Content Include="Views\MarcaVehiculo\Index.cshtml" />
     <Content Include="Views\Conductor\Create.cshtml" />
     <Content Include="Views\Conductor\Delete.cshtml" />
     <Content Include="Views\Conductor\Details.cshtml" />
     <Content Include="Views\Conductor\Edit.cshtml" />
     <Content Include="Views\Conductor\Index.cshtml" />
-    <Content Include="Views\Vehiculo\Delete.cshtml" />
-    <Content Include="Views\Vehiculo\Details.cshtml" />
-    <Content Include="Views\Vehiculo\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\Fotos\" />
+    <Folder Include="Views\Rol\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

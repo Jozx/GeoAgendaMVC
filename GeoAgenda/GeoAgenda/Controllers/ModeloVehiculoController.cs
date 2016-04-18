@@ -11,116 +11,107 @@ using GeoAgenda.Models;
 
 namespace GeoAgenda.Controllers
 {
-    public class PlanificacionController : Controller
+    public class ModeloVehiculoController : Controller
     {
         private GeoAgendaContext db = new GeoAgendaContext();
 
-        // GET: Planificacion
+        // GET: ModeloVehiculo
         public ActionResult Index()
         {
-            var planificaciones = db.Planificaciones.Include(p => p.cliente).Include(p => p.vehiculo);
-            return View(planificaciones.ToList());
+            return View(db.Modelos.ToList());
         }
 
-        // GET: Planificacion/Details/5
+        // GET: ModeloVehiculo/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Planificacion planificacion = db.Planificaciones.Find(id);
-            if (planificacion == null)
+            ModeloVehiculo modeloVehiculo = db.Modelos.Find(id);
+            if (modeloVehiculo == null)
             {
                 return HttpNotFound();
             }
-            return View(planificacion);
+            return View(modeloVehiculo);
         }
 
-        // GET: Planificacion/Create
+        // GET: ModeloVehiculo/Create
         public ActionResult Create()
         {
-            ViewBag.IdCliente = new SelectList(db.Clientes, "IdCliente", "RazonSocial");
-            ViewBag.IdVehiculo = new SelectList(db.Vehiculos, "IdVehiculo", "Marca");
             return View();
         }
 
-        // POST: Planificacion/Create
+        // POST: ModeloVehiculo/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "IdPlanificacion,fechaEnvio,horaEnvio,IdVehiculo,IdCliente")] Planificacion planificacion)
+        public ActionResult Create( ModeloVehiculo modeloVehiculo)
         {
             if (ModelState.IsValid)
             {
-                db.Planificaciones.Add(planificacion);
+                db.Modelos.Add(modeloVehiculo);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.IdCliente = new SelectList(db.Clientes, "IdCliente", "RazonSocial", planificacion.IdCliente);
-            ViewBag.IdVehiculo = new SelectList(db.Vehiculos, "IdVehiculo", "Marca", planificacion.IdVehiculo);
-            return View(planificacion);
+            return View(modeloVehiculo);
         }
 
-        // GET: Planificacion/Edit/5
+        // GET: ModeloVehiculo/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Planificacion planificacion = db.Planificaciones.Find(id);
-            if (planificacion == null)
+            ModeloVehiculo modeloVehiculo = db.Modelos.Find(id);
+            if (modeloVehiculo == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.IdCliente = new SelectList(db.Clientes, "IdCliente", "RazonSocial", planificacion.IdCliente);
-            ViewBag.IdVehiculo = new SelectList(db.Vehiculos, "IdVehiculo", "Marca", planificacion.IdVehiculo);
-            return View(planificacion);
+            return View(modeloVehiculo);
         }
 
-        // POST: Planificacion/Edit/5
+        // POST: ModeloVehiculo/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "IdPlanificacion,fechaEnvio,horaEnvio,IdVehiculo,IdCliente")] Planificacion planificacion)
+        public ActionResult Edit(ModeloVehiculo modeloVehiculo)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(planificacion).State = EntityState.Modified;
+                db.Entry(modeloVehiculo).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.IdCliente = new SelectList(db.Clientes, "IdCliente", "RazonSocial", planificacion.IdCliente);
-            ViewBag.IdVehiculo = new SelectList(db.Vehiculos, "IdVehiculo", "Marca", planificacion.IdVehiculo);
-            return View(planificacion);
+            return View(modeloVehiculo);
         }
 
-        // GET: Planificacion/Delete/5
+        // GET: ModeloVehiculo/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Planificacion planificacion = db.Planificaciones.Find(id);
-            if (planificacion == null)
+            ModeloVehiculo modeloVehiculo = db.Modelos.Find(id);
+            if (modeloVehiculo == null)
             {
                 return HttpNotFound();
             }
-            return View(planificacion);
+            return View(modeloVehiculo);
         }
 
-        // POST: Planificacion/Delete/5
+        // POST: ModeloVehiculo/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Planificacion planificacion = db.Planificaciones.Find(id);
-            db.Planificaciones.Remove(planificacion);
+            ModeloVehiculo modeloVehiculo = db.Modelos.Find(id);
+            db.Modelos.Remove(modeloVehiculo);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
