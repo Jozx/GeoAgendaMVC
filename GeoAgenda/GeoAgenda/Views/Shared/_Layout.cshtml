@@ -30,6 +30,29 @@
                     <li>@Html.ActionLink("ModeloVehiculo", "Index", "ModeloVehiculo")</li>
                     <li>@Html.ActionLink("Entrega", "Index", "Entrega")</li>
                     <li>@Html.ActionLink("Planificacion", "Index", "Planificacion")</li>
+
+                    @if (User.Identity.IsAuthenticated)
+                    {
+
+                        @*@if (User.IsInRole("ADMINISTRADOR"))
+                            {*@
+                        <li class="dropdown">
+
+                            <a data-toggle="dropdown" class="dropdown-toggle" href="#">MODIFICACIONES <b class="caret"></b></a>
+                            <ul role="menu" class="dropdown-menu">
+
+                                <li><a href="#">@Html.ActionLink("ROL", "Index", "Rol")</a></li>
+
+                                <li class="divider"></li>
+                                <li><a href="#">@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</a></li>
+                            </ul>
+                        </li>
+                        //}
+                    }
+
+
+
+
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>

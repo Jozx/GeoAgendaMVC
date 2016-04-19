@@ -1,4 +1,5 @@
 ﻿using GeoAgenda.Models;
+using Microsoft.AspNet.Identity.EntityFramework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,5 +24,32 @@ namespace GeoAgenda.Controllers
 
             return View(Roles);
         }
+
+        public ActionResult Create()
+        {
+            var Role = new IdentityRole();
+            return View(Role);
+        }
+
+        [HttpPost]
+        public ActionResult Create(IdentityRole Rol)
+        {
+
+            //[Authorize(Users ="jose,mmm")];
+
+            if (User.IsInRole("ADMINISTRADOR"))
+            {
+                context.Roles.Add(Rol);
+                context.SaveChanges();
+
+            }
+            else
+            {
+                ViewBag.Error = "No pose autorizacion";
+                return View(Rol);
+            }
+            return RedirectToAction("Index");
+        }
+
     }
 }

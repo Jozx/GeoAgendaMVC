@@ -295,11 +295,12 @@
     <Content Include="Views\Entrega\Details.cshtml" />
     <Content Include="Views\Entrega\Edit.cshtml" />
     <Content Include="Views\Entrega\Index.cshtml" />
+    <Content Include="Views\Rol\Index.cshtml" />
+    <Content Include="Views\Rol\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\Fotos\" />
-    <Folder Include="Views\Rol\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
