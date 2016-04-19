@@ -1,0 +1,69 @@
+﻿@model IEnumerable<GeoAgenda.Models.Entrega>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.cliente.RazonSocial)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.conductor.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Carga)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fechaEntrega)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.horaEntrega)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.latitudEntrega)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.longitudEntrega)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.cliente.RazonSocial)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.conductor.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Carga)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fechaEntrega)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.horaEntrega)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.latitudEntrega)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.longitudEntrega)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.IdEntrega }) |
+            @Html.ActionLink("Details", "Details", new { id=item.IdEntrega }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.IdEntrega })
+        </td>
+    </tr>
+}
+
+</table>

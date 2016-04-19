@@ -171,12 +171,15 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ClienteController.cs" />
     <Compile Include="Controllers\ConductorController.cs" />
+    <Compile Include="Controllers\EntregaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MarcaVehiculoController.cs" />
     <Compile Include="Controllers\ModeloVehiculoController.cs" />
+    <Compile Include="Controllers\PlanificacionController.cs" />
     <Compile Include="Controllers\RolController.cs" />
     <Compile Include="Controllers\SucursalController.cs" />
+    <Compile Include="Controllers\VehiculoController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -287,6 +290,11 @@
     <Content Include="Views\Conductor\Details.cshtml" />
     <Content Include="Views\Conductor\Edit.cshtml" />
     <Content Include="Views\Conductor\Index.cshtml" />
+    <Content Include="Views\Entrega\Create.cshtml" />
+    <Content Include="Views\Entrega\Delete.cshtml" />
+    <Content Include="Views\Entrega\Details.cshtml" />
+    <Content Include="Views\Entrega\Edit.cshtml" />
+    <Content Include="Views\Entrega\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,0 +1,74 @@
+﻿@model GeoAgenda.Models.Entrega
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Entrega</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.cliente.RazonSocial)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cliente.RazonSocial)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.conductor.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.conductor.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Carga)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Carga)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fechaEntrega)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fechaEntrega)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.horaEntrega)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.horaEntrega)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.latitudEntrega)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.latitudEntrega)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.longitudEntrega)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.longitudEntrega)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IdEntrega }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
