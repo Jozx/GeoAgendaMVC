@@ -42,7 +42,7 @@ namespace GeoAgenda.Controllers
         {
             ViewBag.IdCliente = new SelectList(db.Clientes, "IdCliente", "RazonSocial");
             ViewBag.IdConductor = new SelectList(db.Conductores, "IdConductor", "Nombre");
-            ViewBag.IdVehiculo = new SelectList(db.Vehiculos, "IdVehiculo", "Kilometraje");
+            ViewBag.IdVehiculo = new SelectList(db.Vehiculos, "IdVehiculo", "IdMarca");
             return View();
         }
 
@@ -62,7 +62,7 @@ namespace GeoAgenda.Controllers
 
             ViewBag.IdCliente = new SelectList(db.Clientes, "IdCliente", "RazonSocial", planificacion.IdCliente);
             ViewBag.IdConductor = new SelectList(db.Conductores, "IdConductor", "Nombre", planificacion.IdConductor);
-            ViewBag.IdVehiculo = new SelectList(db.Vehiculos, "IdVehiculo", "Kilometraje", planificacion.IdVehiculo);
+            ViewBag.IdVehiculo = new SelectList(db.Vehiculos, "IdVehiculo", "IdMarca", planificacion.IdVehiculo);
             return View(planificacion);
         }
 
@@ -80,7 +80,7 @@ namespace GeoAgenda.Controllers
             }
             ViewBag.IdCliente = new SelectList(db.Clientes, "IdCliente", "RazonSocial", planificacion.IdCliente);
             ViewBag.IdConductor = new SelectList(db.Conductores, "IdConductor", "Nombre", planificacion.IdConductor);
-            ViewBag.IdVehiculo = new SelectList(db.Vehiculos, "IdVehiculo", "Kilometraje", planificacion.IdVehiculo);
+            ViewBag.IdVehiculo = new SelectList(db.Vehiculos, "IdVehiculo", "IdMarca", planificacion.IdVehiculo);
             return View(planificacion);
         }
 
@@ -99,7 +99,7 @@ namespace GeoAgenda.Controllers
             }
             ViewBag.IdCliente = new SelectList(db.Clientes, "IdCliente", "RazonSocial", planificacion.IdCliente);
             ViewBag.IdConductor = new SelectList(db.Conductores, "IdConductor", "Nombre", planificacion.IdConductor);
-            ViewBag.IdVehiculo = new SelectList(db.Vehiculos, "IdVehiculo", "Kilometraje", planificacion.IdVehiculo);
+            ViewBag.IdVehiculo = new SelectList(db.Vehiculos, "IdVehiculo", "IdMarca", planificacion.IdVehiculo);
             return View(planificacion);
         }
 

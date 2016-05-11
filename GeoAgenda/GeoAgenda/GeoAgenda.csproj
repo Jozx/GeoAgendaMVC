@@ -193,6 +193,7 @@
     <Compile Include="Models\MarcaVehiculo.cs" />
     <Compile Include="Models\ModeloVehiculo.cs" />
     <Compile Include="Models\Planificacion.cs" />
+    <Compile Include="Models\PlanificacionDetalle.cs" />
     <Compile Include="Models\Sucursal.cs" />
     <Compile Include="Models\Vehiculo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
