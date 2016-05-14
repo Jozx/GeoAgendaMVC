@@ -22,6 +22,12 @@ namespace GeoAgenda.Controllers
             return View(planificaciones.ToList());
         }
 
+        public ActionResult Create()
+        {
+            ViewBag.IdCliente = new SelectList(db.Clientes.ToList(), "IdCliente", "RazonSocial");
+            return View();
+        }
+
         // GET: Planificacion/Details/5
         public ActionResult Details(int? id)
         {
@@ -38,33 +44,33 @@ namespace GeoAgenda.Controllers
         }
 
         // GET: Planificacion/Create
-        public ActionResult Create()
-        {
-            ViewBag.IdCliente = new SelectList(db.Clientes, "IdCliente", "RazonSocial");
-            ViewBag.IdConductor = new SelectList(db.Conductores, "IdConductor", "Nombre");
-            ViewBag.IdVehiculo = new SelectList(db.Vehiculos, "IdVehiculo", "IdMarca");
-            return View();
-        }
+        //public ActionResult Create()
+        //{
+        //    ViewBag.IdCliente = new SelectList(db.Clientes, "IdCliente", "RazonSocial");
+        //    ViewBag.IdConductor = new SelectList(db.Conductores, "IdConductor", "Nombre");
+        //    ViewBag.IdVehiculo = new SelectList(db.Vehiculos, "IdVehiculo", "IdMarca");
+        //    return View();
+        //}
 
-        // POST: Planificacion/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(Planificacion planificacion)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Planificaciones.Add(planificacion);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
+        //// POST: Planificacion/Create
+        //// To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        //// more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult Create(Planificacion planificacion)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        db.Planificaciones.Add(planificacion);
+        //        db.SaveChanges();
+        //        return RedirectToAction("Index");
+        //    }
 
-            ViewBag.IdCliente = new SelectList(db.Clientes, "IdCliente", "RazonSocial", planificacion.IdCliente);
-            ViewBag.IdConductor = new SelectList(db.Conductores, "IdConductor", "Nombre", planificacion.IdConductor);
-            ViewBag.IdVehiculo = new SelectList(db.Vehiculos, "IdVehiculo", "IdMarca", planificacion.IdVehiculo);
-            return View(planificacion);
-        }
+        //    ViewBag.IdCliente = new SelectList(db.Clientes, "IdCliente", "RazonSocial", planificacion.IdCliente);
+        //    ViewBag.IdConductor = new SelectList(db.Conductores, "IdConductor", "Nombre", planificacion.IdConductor);
+        //    ViewBag.IdVehiculo = new SelectList(db.Vehiculos, "IdVehiculo", "IdMarca", planificacion.IdVehiculo);
+        //    return View(planificacion);
+        //}
 
         // GET: Planificacion/Edit/5
         public ActionResult Edit(int? id)

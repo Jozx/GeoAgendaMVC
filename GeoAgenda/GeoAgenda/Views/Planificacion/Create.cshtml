@@ -1,17 +1,12 @@
 ﻿@model GeoAgenda.Models.Planificacion
 
-@{
-    ViewBag.Title = "Create";
-}
+@using (Html.BeginForm())
 
-<h2>Create</h2>
-
-
-@using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
+
+
+    <div>
         <h4>Planificacion</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
@@ -23,21 +18,9 @@
             </div>
         </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.horaEnvio, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.horaEnvio, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.horaEnvio, "", new { @class = "text-danger" })
-            </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.IdVehiculo, "IdVehiculo", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("IdVehiculo", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.IdVehiculo, "", new { @class = "text-danger" })
-            </div>
-        </div>
+
+
 
         <div class="form-group">
             @Html.LabelFor(model => model.IdCliente, "IdCliente", htmlAttributes: new { @class = "control-label col-md-2" })
@@ -47,26 +30,50 @@
             </div>
         </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.IdConductor, "IdConductor", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("IdConductor", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.IdConductor, "", new { @class = "text-danger" })
-            </div>
-        </div>
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
-            </div>
-        </div>
+        @*<table>
+            <thead>
+                <tr>
+
+                    <th>Cantidad</th>
+                    <th>Descripcion</th>
+                    <th>Precio</th>
+                    <th>PrecioTotal</th>
+                    <th><button type="submit" name="operacion" data-val="false" value="agregar-detalle">Agregar Detalle</button></th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model != null && Model.Detalle != null && Model.Detalle.Count > 0)
+                {
+                    var i = 0;
+                    foreach (var item in Model.Detalle)
+                    {
+                        <tr>
+                            @*<td>@Html.DropDownList("Detalle[" + i + "].TipoId", new SelectList(ViewBag.Tipo, "Id", "Nombre", item.Id))</td>*@
+
+                            <td>@Html.TextBox("Detalle[" + i + "].Cantidad", item.Cantidad)</td>
+                            <td>@Html.TextBox("Detalle[" + i + "].Descripcion", item.Descripcion)</td>
+                            <td>@Html.TextBox("Detalle[" + i + "].PrecioUnitario", item.PrecioUnitario)</td>
+                            <td>@Html.TextBox("Detalle[" + i + "].PrecioTotal", item.PrecioTotal)</td>
+                            <td><button type="submit" name="operacion" value="eliminar-detalle-@i">Eliminar</button></td>
+                        </tr>
+                        i++;
+                    }
+                }
+            </tbody>
+        </table>*@
+
+
+
+
+        <p>
+            <input type="submit" class="btn btn-primary" value="Create" />
+        </p>
+
+
+
+
     </div>
+
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
-
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}

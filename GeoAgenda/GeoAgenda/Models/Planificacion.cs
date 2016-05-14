@@ -16,9 +16,16 @@ namespace GeoAgenda.Models
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime fechaEnvio { get; set; }
 
-        [DisplayFormat(DataFormatString = "{0:HH:mm}", ApplyFormatInEditMode = true)]
-        public DateTime horaEnvio { get; set; }
+        //[DisplayFormat(DataFormatString = "{0:HH:mm}", ApplyFormatInEditMode = true)]
+        //public DateTime horaEnvio { get; set; }
 
+        //Hashset a PlanificacionDetalle
+        public virtual ICollection <PlanificacionDetalle> Detalle { get; set; }
+
+        public Planificacion()
+        {
+            this.Detalle = new HashSet<PlanificacionDetalle>();
+        }
         //Foraneas
         public int IdVehiculo { get; set; }
         public virtual Vehiculo vehiculo { get; set; }

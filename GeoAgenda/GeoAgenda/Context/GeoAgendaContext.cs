@@ -22,5 +22,6 @@ namespace GeoAgenda.Context
         public DbSet <Sucursal> Sucursales { get; set; }
         public DbSet <MarcaVehiculo> Marcas { get; set; }
         public DbSet <ModeloVehiculo> Modelos { get; set; }
+        public DbSet<PlanificacionDetalle> PlanificacionDetalle { get; set; }
     }
 }

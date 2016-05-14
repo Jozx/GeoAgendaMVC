@@ -177,6 +177,7 @@
     <Compile Include="Controllers\MarcaVehiculoController.cs" />
     <Compile Include="Controllers\ModeloVehiculoController.cs" />
     <Compile Include="Controllers\PlanificacionController.cs" />
+    <Compile Include="Controllers\PlanificacionDetalleController.cs" />
     <Compile Include="Controllers\RolController.cs" />
     <Compile Include="Controllers\SucursalController.cs" />
     <Compile Include="Controllers\VehiculoController.cs" />
@@ -302,6 +303,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\Fotos\" />
+    <Folder Include="Views\PlanificacionDetalle\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

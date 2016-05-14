@@ -13,7 +13,7 @@ namespace GeoAgenda.Models
         [DisplayFormat(DataFormatString = "{0:HH:mm}", ApplyFormatInEditMode = true)]
         public DateTime hora { get; set; }
 
-        public int IdCliente { get; set; }
-        public virtual Cliente cliente { get; set; }
+        //public int IdCliente { get; set; }
+        //public virtual Cliente cliente { get; set; }
     }
 }
