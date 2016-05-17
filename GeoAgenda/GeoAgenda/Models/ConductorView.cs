@@ -16,7 +16,6 @@ namespace GeoAgenda.Models
         public HttpPostedFileBase Foto { get; set; }
 
 
-        public virtual ICollection<Planificacion> planificacion { get; set; }
         public virtual ICollection<Entrega> entrega { get; set; }
     }
 }

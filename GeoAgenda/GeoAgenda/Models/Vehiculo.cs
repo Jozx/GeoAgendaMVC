@@ -19,6 +19,5 @@ namespace GeoAgenda.Models
         public int IdMarca { get; set; }
         public virtual MarcaVehiculo marca { get; set; }
 
-        public virtual ICollection<Planificacion> planificacion { get; set; }
     }
 }

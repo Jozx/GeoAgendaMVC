@@ -18,8 +18,6 @@ namespace GeoAgenda.Models
         [DataType(DataType.ImageUrl)]
         public string Foto { get; set; }
 
-
-        public virtual ICollection<Planificacion> planificacion { get; set; }
         public virtual ICollection<Entrega> entrega { get; set; }
 
 

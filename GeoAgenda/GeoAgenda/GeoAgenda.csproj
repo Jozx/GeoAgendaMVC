@@ -172,12 +172,11 @@
     <Compile Include="Controllers\ClienteController.cs" />
     <Compile Include="Controllers\ConductorController.cs" />
     <Compile Include="Controllers\EntregaController.cs" />
+    <Compile Include="Controllers\HojaRutaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MarcaVehiculoController.cs" />
     <Compile Include="Controllers\ModeloVehiculoController.cs" />
-    <Compile Include="Controllers\PlanificacionController.cs" />
-    <Compile Include="Controllers\PlanificacionDetalleController.cs" />
     <Compile Include="Controllers\RolController.cs" />
     <Compile Include="Controllers\SucursalController.cs" />
     <Compile Include="Controllers\VehiculoController.cs" />
@@ -189,12 +188,12 @@
     <Compile Include="Models\Conductor.cs" />
     <Compile Include="Models\ConductorView.cs" />
     <Compile Include="Models\Entrega.cs" />
+    <Compile Include="Models\HojaRuta.cs" />
+    <Compile Include="Models\HojaRutaDetalle.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MarcaVehiculo.cs" />
     <Compile Include="Models\ModeloVehiculo.cs" />
-    <Compile Include="Models\Planificacion.cs" />
-    <Compile Include="Models\PlanificacionDetalle.cs" />
     <Compile Include="Models\Sucursal.cs" />
     <Compile Include="Models\Vehiculo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -264,11 +263,6 @@
     <Content Include="Views\Cliente\Edit.cshtml" />
     <Content Include="Views\Cliente\Delete.cshtml" />
     <Content Include="Views\Vehiculo\Create.cshtml" />
-    <Content Include="Views\Planificacion\Create.cshtml" />
-    <Content Include="Views\Planificacion\Delete.cshtml" />
-    <Content Include="Views\Planificacion\Details.cshtml" />
-    <Content Include="Views\Planificacion\Edit.cshtml" />
-    <Content Include="Views\Planificacion\Index.cshtml" />
     <Content Include="Views\Vehiculo\Delete.cshtml" />
     <Content Include="Views\Vehiculo\Details.cshtml" />
     <Content Include="Views\Vehiculo\Edit.cshtml" />
@@ -299,11 +293,11 @@
     <Content Include="Views\Entrega\Index.cshtml" />
     <Content Include="Views\Rol\Index.cshtml" />
     <Content Include="Views\Rol\Create.cshtml" />
+    <Content Include="Views\HojaRuta\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\Fotos\" />
-    <Folder Include="Views\PlanificacionDetalle\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

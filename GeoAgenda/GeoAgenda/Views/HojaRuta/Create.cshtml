@@ -1,4 +1,7 @@
-﻿@model GeoAgenda.Models.Planificacion
+﻿@model GeoAgenda.Models.HojaRuta
+@{
+    ViewBag.Title = "HojaRuta";
+}
 
 @using (Html.BeginForm())
 
@@ -7,38 +10,42 @@
 
 
     <div>
-        <h4>Planificacion</h4>
+        <h4>Hoja de Ruta</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
-            @Html.LabelFor(model => model.fechaEnvio, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Fecha, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.fechaEnvio, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.fechaEnvio, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.Fecha, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Fecha, "", new { @class = "text-danger" })
             </div>
         </div>
-
-
-
-
 
         <div class="form-group">
             @Html.LabelFor(model => model.IdCliente, "IdCliente", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownList("IdCliente", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.IdCliente, "", new { @class = "text-danger" })
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.IdConductor, "IdConductor", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("IdConductor", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.IdConductor, "", new { @class = "text-danger" })
+
             </div>
         </div>
 
 
-        @*<table>
+        <table>
             <thead>
                 <tr>
 
-                    <th>Cantidad</th>
+                    <th>Hora</th>
                     <th>Descripcion</th>
-                    <th>Precio</th>
-                    <th>PrecioTotal</th>
                     <th><button type="submit" name="operacion" data-val="false" value="agregar-detalle">Agregar Detalle</button></th>
                 </tr>
             </thead>
@@ -51,17 +58,15 @@
                         <tr>
                             @*<td>@Html.DropDownList("Detalle[" + i + "].TipoId", new SelectList(ViewBag.Tipo, "Id", "Nombre", item.Id))</td>*@
 
-                            <td>@Html.TextBox("Detalle[" + i + "].Cantidad", item.Cantidad)</td>
+                            <td>@Html.TextBox("Detalle[" + i + "].Hora", item.Hora)</td>
                             <td>@Html.TextBox("Detalle[" + i + "].Descripcion", item.Descripcion)</td>
-                            <td>@Html.TextBox("Detalle[" + i + "].PrecioUnitario", item.PrecioUnitario)</td>
-                            <td>@Html.TextBox("Detalle[" + i + "].PrecioTotal", item.PrecioTotal)</td>
                             <td><button type="submit" name="operacion" value="eliminar-detalle-@i">Eliminar</button></td>
                         </tr>
                         i++;
                     }
                 }
             </tbody>
-        </table>*@
+        </table>
 
 
 
@@ -76,4 +81,3 @@
     </div>
 
 }
-

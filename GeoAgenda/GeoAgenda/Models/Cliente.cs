@@ -19,7 +19,6 @@ namespace GeoAgenda.Models
 
         public Boolean Estado { get; set; }
 
-        public virtual ICollection<Planificacion> planificacion { get; set; }
         public virtual ICollection <Entrega> entrega { get; set; }
 
         public int IdSucursal { get; set; }

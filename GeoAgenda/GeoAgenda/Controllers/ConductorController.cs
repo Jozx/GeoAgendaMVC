@@ -72,7 +72,7 @@ namespace GeoAgenda.Controllers
                     Nombre = conductorview.Nombre,
                     NroRegistro = conductorview.NroRegistro,
                     entrega = conductorview.entrega,
-                    planificacion = conductorview.planificacion,
+
                     Foto = imag == string.Empty ? string.Empty : string.Format("~/Content/Fotos/{0}", imag),
 
                 };
