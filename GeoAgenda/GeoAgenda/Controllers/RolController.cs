@@ -37,17 +37,10 @@ namespace GeoAgenda.Controllers
 
             //[Authorize(Users ="jose,mmm")];
 
-            if (User.IsInRole("ADMINISTRADOR"))
-            {
                 context.Roles.Add(Rol);
                 context.SaveChanges();
 
-            }
-            else
-            {
-                ViewBag.Error = "No pose autorizacion";
-                return View(Rol);
-            }
+            
             return RedirectToAction("Index");
         }
 

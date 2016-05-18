@@ -16,8 +16,11 @@ namespace GeoAgenda.Controllers
         {
             ViewBag.IdCliente = new SelectList(db.Clientes.ToList(), "IdCliente", "RazonSocial");
             ViewBag.IdConductor = new SelectList(db.Conductores.ToList(), "IdConductor", "Nombre");
+          
+            var hrd = new HojaRuta();
 
-            return View();
+            hrd.Detalle.Add(new HojaRutaDetalle());
+            return View(hrd);
         }
 
         [HttpPost]

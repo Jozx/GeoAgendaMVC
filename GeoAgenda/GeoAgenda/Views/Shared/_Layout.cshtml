@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title - GeoAgenda</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
@@ -22,32 +22,34 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Cliente", "Index", "Cliente")</li>
-                    <li>@Html.ActionLink("Sucursal", "Index", "Sucursal")</li>
-                    <li>@Html.ActionLink("Conductor", "Index", "Conductor")</li>
-                    <li>@Html.ActionLink("Vehiculo", "Index", "Vehiculo")</li>
-                    <li>@Html.ActionLink("MarcaVehiculo", "Index", "MarcaVehiculo")</li>
-                    <li>@Html.ActionLink("ModeloVehiculo", "Index", "ModeloVehiculo")</li>
-                    <li>@Html.ActionLink("Entrega", "Index", "Entrega")</li>
-                    <li>@Html.ActionLink("HojaRuta", "Create", "HojaRuta")</li>
+
 
                     @if (User.Identity.IsAuthenticated)
                     {
 
-                        @*@if (User.IsInRole("ADMINISTRADOR"))
-                            {*@
+                        <li>@Html.ActionLink("Conductor", "Index", "Conductor")</li>
+                        <li>@Html.ActionLink("Entrega", "Index", "Entrega")</li>
+                        <li>@Html.ActionLink("HojaRuta", "Create", "HojaRuta")</li>
+
                         <li class="dropdown">
-
-                            <a data-toggle="dropdown" class="dropdown-toggle" href="#">MODIFICACIONES <b class="caret"></b></a>
+                            <a data-toggle="dropdown" class="dropdown-toggle" href="#">Clientes <b class="caret"></b></a>
                             <ul role="menu" class="dropdown-menu">
-
-                                <li><a href="#">@Html.ActionLink("ROL", "Index", "Rol")</a></li>
-
+                                <li><a href="#">@Html.ActionLink("Cliente", "Index", "Cliente")</a></li>
                                 <li class="divider"></li>
-                                <li><a href="#">@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</a></li>
+                                <li><a href="#">@Html.ActionLink("Sucursal", "Index", "Sucursal")</a></li>
                             </ul>
                         </li>
-                        //}
+                        
+                        <li class="dropdown">
+                            <a data-toggle="dropdown" class="dropdown-toggle" href="#">Vehiculo <b class="caret"></b></a>
+                            <ul role="menu" class="dropdown-menu">
+                                <li><a href="#">@Html.ActionLink("Vehiculo", "Index", "Vehiculo")</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#">@Html.ActionLink("MarcaVehiculo", "Index", "MarcaVehiculo")</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#">@Html.ActionLink("ModeloVehiculo", "Index", "ModeloVehiculo")</a></li>
+                            </ul>
+                        </li>
                     }
 
 
@@ -62,7 +64,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <p>&copy; @DateTime.Now.Year - GeoAgenda</p>
         </footer>
     </div>
 

@@ -15,7 +15,7 @@ namespace GeoAgenda.Models
 
         public string Descripcion { get; set; }
 
-        [DisplayFormat(DataFormatString = "{0:HH:mm}", ApplyFormatInEditMode = true)]
-        public DateTime Hora { get; set; }
+        [DisplayFormat(DataFormatString = @"{0:hh\-mm}", ApplyFormatInEditMode = true)]
+        public TimeSpan Hora { get; set; }
     }
 }
