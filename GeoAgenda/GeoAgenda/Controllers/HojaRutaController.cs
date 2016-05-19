@@ -26,8 +26,27 @@ namespace GeoAgenda.Controllers
         [HttpPost]
         public ActionResult Create(HojaRuta HojaRuta, string operacion = null)
         {
+            ViewBag.IdCliente = new SelectList(db.Clientes.ToList(), "IdCliente", "RazonSocial");
+
+            if (HojaRuta == null)
+            {
+                HojaRuta = new HojaRuta();
+            }
+
+            if (operacion == null)
+            {
+                if (CrearHojaRuta(HojaRuta))
+                {
+                    return
+                }
+            }
 
             return View(HojaRuta);
+        }
+
+        private bool CrearHojaRuta(HojaRuta HojaRuta)
+        {
+            return false;
         }
     }
 }

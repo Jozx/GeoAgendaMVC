@@ -23,5 +23,11 @@ namespace GeoAgenda.Context
         public DbSet <ModeloVehiculo> Modelos { get; set; }
         public DbSet<HojaRuta> HojaRuta { get; set; }
         public DbSet<HojaRutaDetalle> HojaRutaDetalle { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Sucursal>().Property(x => x.longitudSucursal).HasPrecision(11, 6);
+            modelBuilder.Entity<Sucursal>().Property(x => x.latitudSucursal).HasPrecision(11, 6);
+        }
     }
 }
