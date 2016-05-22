@@ -15,11 +15,11 @@ namespace GeoAgenda.Models
         public string Direccion { get; set; }
         public string contactoSucursal { get; set; }
         public string telefonoSucursal { get; set; }
-        public string emailSucursal { get; set; }
+        //public string emailSucursal { get; set; }
      
-        public Decimal latitudSucursal { get; set; }
+        public float latitudSucursal { get; set; }
 
-        public Decimal longitudSucursal { get; set; }
+        public float longitudSucursal { get; set; }
 
         public virtual ICollection<Cliente> cliente { get; set; }
 

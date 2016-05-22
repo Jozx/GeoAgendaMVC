@@ -53,7 +53,9 @@
 
                             <td>@Html.TextBox("Detalle[" + i + "].Hora", item.Hora)</td>
                             <td>@Html.TextBox("Detalle[" + i + "].Descripcion", item.Descripcion)</td>
-                            <td>@Html.DropDownList("IdCliente", null, htmlAttributes: new { @class = "form-control" })</td>
+                            <td>@Html.DropDownList("Detalle[" + i + "].IdCliente", 
+                               new SelectList(ViewBag.Tipo, "IdCliente", "RazonSocial", item.IdCliente))</td>
+                            @*<td>@Html.DropDownList("IdCliente", null, htmlAttributes: new { @class = "form-control" })</td>*@
                             <td><button type="submit" name="operacion" value="eliminar-detalle-@i">Eliminar</button></td>
                         </tr>
                         i++;

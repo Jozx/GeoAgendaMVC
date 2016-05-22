@@ -26,8 +26,8 @@ namespace GeoAgenda.Context
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Sucursal>().Property(x => x.longitudSucursal).HasPrecision(11, 6);
-            modelBuilder.Entity<Sucursal>().Property(x => x.latitudSucursal).HasPrecision(11, 6);
+            modelBuilder.Entity<Sucursal>().Property(x => x.longitudSucursal);
+            modelBuilder.Entity<Sucursal>().Property(x => x.latitudSucursal);
         }
     }
 }

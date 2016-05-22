@@ -16,7 +16,7 @@ namespace GeoAgenda.Controllers
 
         public ActionResult Create()
         {
-            ViewBag.IdCliente = new SelectList(db.Clientes.ToList(), "IdCliente", "RazonSocial");
+            //ViewBag.IdCliente = new SelectList(db.Clientes.ToList(), "IdCliente", "RazonSocial");
             ViewBag.IdConductor = new SelectList(db.Conductores.ToList(), "IdConductor", "Nombre");
           
             var hrd = new HojaRuta();
