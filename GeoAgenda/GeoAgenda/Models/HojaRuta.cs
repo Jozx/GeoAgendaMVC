@@ -9,13 +9,10 @@ namespace GeoAgenda.Models
     public class HojaRuta
     {
         [Key]
-        public int IdGasto { get; set; }
+        public int IdHojaRuta { get; set; }
 
         [DataType(DataType.Date)]
         public DateTime Fecha { get; set; }
-
-        public int IdCliente { get; set; }
-        public virtual Cliente cliente { get; set; }
 
         public int IdConductor { get; set; }
         public virtual Conductor conductos { get; set; }
