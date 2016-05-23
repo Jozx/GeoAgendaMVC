@@ -15,8 +15,8 @@ namespace GeoAgenda.Models
 
         public string Descripcion { get; set; }
 
-        public int IdCliente { get; set; }
-        public virtual Cliente cliente { get; set; }
+        //public int IdCliente { get; set; }
+        //public virtual Cliente cliente { get; set; }
 
         [DisplayFormat(DataFormatString = @"{0:hh\-mm}", ApplyFormatInEditMode = true)]
         public TimeSpan Hora { get; set; }

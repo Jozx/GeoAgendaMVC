@@ -16,7 +16,7 @@ namespace GeoAgenda.Controllers
 
         public ActionResult Create()
         {
-            //ViewBag.IdCliente = new SelectList(db.Clientes.ToList(), "IdCliente", "RazonSocial");
+            ViewBag.IdCliente = new SelectList(db.Clientes.ToList(), "IdCliente", "RazonSocial");
             ViewBag.IdConductor = new SelectList(db.Conductores.ToList(), "IdConductor", "Nombre");
           
             var hrd = new HojaRuta();
@@ -29,6 +29,7 @@ namespace GeoAgenda.Controllers
         public ActionResult Create(HojaRuta HojaRuta, string operacion = null)
         {
             ViewBag.IdCliente = new SelectList(db.Clientes.ToList(), "IdCliente", "RazonSocial");
+            ViewBag.IdConductor = new SelectList(db.Conductores.ToList(), "IdConductor", "Nombre");
 
             if (HojaRuta == null)
             {
@@ -68,6 +69,7 @@ namespace GeoAgenda.Controllers
                         hr.IdHojaRuta = 0;
                         
                         hr.IdConductor = HojaRuta.IdConductor;
+                        hr.IdCliente = HojaRuta.IdCliente;
                         hr.Fecha = HojaRuta.Fecha;
                         db.HojaRuta.Add(hr);
 
@@ -78,7 +80,7 @@ namespace GeoAgenda.Controllers
                             hrd.IdHojaRuta = hr.IdHojaRuta;
                             hrd.Hora = item.Hora;
                             hrd.Descripcion = item.Descripcion;
-                            hrd.IdCliente = item.IdCliente;
+                            //hrd.IdCliente = item.IdCliente;
 
                             db.HojaRutaDetalle.Add(hrd);
 

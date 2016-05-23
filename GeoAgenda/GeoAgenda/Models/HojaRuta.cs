@@ -17,6 +17,9 @@ namespace GeoAgenda.Models
         public int IdConductor { get; set; }
         public virtual Conductor conductos { get; set; }
 
+        public int IdCliente { get; set; }
+        public virtual Cliente cliente { get; set; }
+
         public virtual ICollection<HojaRutaDetalle> Detalle { get; set; }
 
         public HojaRuta()
