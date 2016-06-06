@@ -299,6 +299,7 @@
     <Content Include="Views\Rol\Index.cshtml" />
     <Content Include="Views\Rol\Create.cshtml" />
     <Content Include="Views\HojaRuta\Create.cshtml" />
+    <Content Include="Views\HojaRuta\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

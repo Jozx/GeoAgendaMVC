@@ -14,6 +14,11 @@ namespace GeoAgenda.Controllers
     {
         GeoAgendaContext db = new GeoAgendaContext();
 
+        public ActionResult Index()
+        {
+            return View(db.HojaRuta.ToList());
+        }
+
         public ActionResult Create()
         {
             ViewBag.IdCliente = new SelectList(db.Clientes.ToList(), "IdCliente", "RazonSocial");
